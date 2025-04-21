@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>User Menu</title>
+    <!-- Include Bootstrap CSS (assuming you have it hosted) -->
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body {
+            font-family:Figtree,sans-serif;
+            text-align: center;
+            background: linear-gradient(to bottom, #f0f6f6, #e0f2f2); /* Soothing gradient background */
+            margin: 0; /* Remove default margin */
+            padding: 0; /* Remove default padding */
+            color: #333; /* Text color */
+        }
+
+        .btn {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh; /* Set a minimum height to fill the viewport */
+            gap: 20px; /* Space between button containers */
+        }
+
+        .button-container {
+            border: 2px solid transparent; /* Remove border */
+            background-color: rgba(255, 255, 255, 0.8); /* Semi-transparent white background */
+            width: 250px;
+            height: 320px; /* Fixed width for button containers */
+            text-align: center;
+            padding: 20px;
+            border-radius: 5px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            transition: box-shadow 0.3s; /* Smooth transition for box shadow */
+        }
+
+        .button-container:hover {
+            box-shadow: 0px 0px 10px 2px rgba(0, 0, 0, 0.2); /* Shadow on hover */
+            background-color: lightblue;
+            -webkit-text-fill-color: #f0f6f6;
+            
+        }
+
+        .button {
+            background-color: transparent; /* Gentle blue background color */
+            color: #094166;
+            border: 2px groove #094166 ;
+            padding: 10px 20px;
+            font-size: 18px;
+            border-radius: 5px;
+            text-decoration: none;
+            cursor: pointer;
+            margin-top: 10px; /* Space between text and button */
+            transition: background-color 0.3s; /* Smooth transition for background color */
+            border-radius: 20px;
+        }
+
+        .button:hover {
+            background-color: #094166; /* Background color on button hover */
+            color: #fff;
+        }
+    </style>
+</head>
+<body>
+    <div class="btn">
+        <div class="button-container" style="display: none;">
+            <svg xmlns="http://www.w3.org/2000/svg" height="4em" viewBox="0 0 448 512"><!--! Font Awesome Free 6.4.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. --><style>svg{fill:#232443}</style><path d="M416 0c17.7 0 32 14.3 32 32c0 59.8-30.3 107.5-69.4 146.6c-28 28-62.5 53.5-97.3 77.4l-2.5 1.7c-11.9 8.1-23.8 16.1-35.5 23.9l0 0 0 0 0 0-1.6 1c-6 4-11.9 7.9-17.8 11.9c-20.9 14-40.8 27.7-59.3 41.5H283.3c-9.8-7.4-20.1-14.7-30.7-22.1l7-4.7 3-2c15.1-10.1 30.9-20.6 46.7-31.6c25 18.1 48.9 37.3 69.4 57.7C417.7 372.5 448 420.2 448 480c0 17.7-14.3 32-32 32s-32-14.3-32-32H64c0 17.7-14.3 32-32 32s-32-14.3-32-32c0-59.8 30.3-107.5 69.4-146.6c28-28 62.5-53.5 97.3-77.4c-34.8-23.9-69.3-49.3-97.3-77.4C30.3 139.5 0 91.8 0 32C0 14.3 14.3 0 32 0S64 14.3 64 32H384c0-17.7 14.3-32 32-32zM338.6 384H109.4c-10.1 10.6-18.6 21.3-25.5 32H364.1c-6.8-10.7-15.3-21.4-25.5-32zM109.4 128H338.6c10.1-10.7 18.6-21.3 25.5-32H83.9c6.8 10.7 15.3 21.3 25.5 32zm55.4 48c18.4 13.8 38.4 27.5 59.3 41.5c20.9-14 40.8-27.7 59.3-41.5H164.7z"/>
+            </svg>
+            <i class="fa-solid fa-dna" style="color: #232443;"></i><br>
+            <p style="font-size: 25px;">View Patient's Record</p>
+            <a href="http://127.0.0.1:5000/runalgo.html" class="button">Upload</a>
+        </div>
+        <div class="button-container">
+            
+            <svg xmlns="http://www.w3.org/2000/svg" height="4em" viewBox="0 0 576 512"><!--! Font Awesome Free 6.4.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. --><path d="M0 96C0 60.7 28.7 32 64 32H512c35.3 0 64 28.7 64 64V416c0 35.3-28.7 64-64 64H64c-35.3 0-64-28.7-64-64V96zM128 288a32 32 0 1 0 0-64 32 32 0 1 0 0 64zm32-128a32 32 0 1 0 -64 0 32 32 0 1 0 64 0zM128 384a32 32 0 1 0 0-64 32 32 0 1 0 0 64zm96-248c-13.3 0-24 10.7-24 24s10.7 24 24 24H448c13.3 0 24-10.7 24-24s-10.7-24-24-24H224zm0 96c-13.3 0-24 10.7-24 24s10.7 24 24 24H448c13.3 0 24-10.7 24-24s-10.7-24-24-24H224zm0 96c-13.3 0-24 10.7-24 24s10.7 24 24 24H448c13.3 0 24-10.7 24-24s-10.7-24-24-24H224z"/>
+            </svg>
+            <i class="fa-solid fa-rectangle-list"></i><br>
+            <p style="font-size: 25px;">View Patient's Yearwise Data</p>
+            <a href="view_record.html" class="button">View</a>
+        </div>
+        <div class="button-container">
+            <svg xmlns="http://www.w3.org/2000/svg" height="4em" viewBox="0 0 448 512"><!--! Font Awesome Free 6.4.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. --><path d="M224 256A128 128 0 1 0 224 0a128 128 0 1 0 0 256zm-96 55.2C54 332.9 0 401.3 0 482.3C0 498.7 13.3 512 29.7 512H418.3c16.4 0 29.7-13.3 29.7-29.7c0-81-54-149.4-128-171.1V362c27.6 7.1 48 32.2 48 62v40c0 8.8-7.2 16-16 16H336c-8.8 0-16-7.2-16-16s7.2-16 16-16V424c0-17.7-14.3-32-32-32s-32 14.3-32 32v24c8.8 0 16 7.2 16 16s-7.2 16-16 16H256c-8.8 0-16-7.2-16-16V424c0-29.8 20.4-54.9 48-62V304.9c-6-.6-12.1-.9-18.3-.9H178.3c-6.2 0-12.3 .3-18.3 .9v65.4c23.1 6.9 40 28.3 40 53.7c0 30.9-25.1 56-56 56s-56-25.1-56-56c0-25.4 16.9-46.8 40-53.7V311.2zM144 448a24 24 0 1 0 0-48 24 24 0 1 0 0 48z"/></svg>
+            <i class="fa-solid fa-user-doctor"></i><br>
+            <p style="font-size: 25px;">Analyse Mutations</p>
+            <a href="http://64.227.142.92:8080/ENLIGHTENMENT/genes-chromosome-coding-ts.html" class="button">Analyse</a>
+        </div>
+        <div class="button-container">
+            <svg xmlns="http://www.w3.org/2000/svg" height="4em" viewBox="0 0 512 512"><!--! Font Awesome Free 6.4.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. --><path d="M377.9 105.9L500.7 228.7c7.2 7.2 11.3 17.1 11.3 27.3s-4.1 20.1-11.3 27.3L377.9 406.1c-6.4 6.4-15 9.9-24 9.9c-18.7 0-33.9-15.2-33.9-33.9l0-62.1-128 0c-17.7 0-32-14.3-32-32l0-64c0-17.7 14.3-32 32-32l128 0 0-62.1c0-18.7 15.2-33.9 33.9-33.9c9 0 17.6 3.6 24 9.9zM160 96L96 96c-17.7 0-32 14.3-32 32l0 256c0 17.7 14.3 32 32 32l64 0c17.7 0 32 14.3 32 32s-14.3 32-32 32l-64 0c-53 0-96-43-96-96L0 128C0 75 43 32 96 32l64 0c17.7 0 32 14.3 32 32s-14.3 32-32 32z"/></svg>
+            <i class="fa-solid fa-right-from-bracket"></i><br>
+            <p style="font-size: 25px ;">Log Out</p><br>
+            <a href="index.html" class="button" onclick="logout">Log Out</a>
+        </div>
+    </div>
+
+    <!-- Include Bootstrap JS (assuming you have it hosted) -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>

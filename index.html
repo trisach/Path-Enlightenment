@@ -1,0 +1,675 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>Path Enlightenment</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <style>
+    @import url("https://fonts.googleapis.com/css?family=Hind:300,400&display=swap");
+* {
+  box-sizing: border-box;
+}
+*::before, *::after {
+  box-sizing: border-box;
+}
+
+.container {
+  margin: 0 auto;
+  padding: 4rem;
+  width: 48rem;
+}
+
+.accordion .accordion-item {
+  border-bottom: 1px solid #e5e5e5;
+}
+.accordion .accordion-item button[aria-expanded=true] {
+  border-bottom: 1px solid #03b5d2;
+}
+.accordion button {
+  position: relative;
+  display: block;
+  text-align: left;
+  width: 100%;
+  padding: 1em 0;
+  color: #7288a2;
+  font-size: 1.15rem;
+  font-weight: 400;
+  border: none;
+  background: none;
+  outline: none;
+}
+.accordion button:hover, .accordion button:focus {
+  cursor: pointer;
+  color: #03b5d2;
+}
+.accordion button:hover::after, .accordion button:focus::after {
+  cursor: pointer;
+  color: #03b5d2;
+  border: 1px solid #03b5d2;
+}
+.accordion button .accordion-title {
+  padding: 1em 1.5em 1em 0;
+}
+.accordion button .icon {
+  display: inline-block;
+  position: absolute;
+  top: 18px;
+  right: 0;
+  width: 22px;
+  height: 22px;
+  border: 1px solid;
+  border-radius: 22px;
+}
+.accordion button .icon::before {
+  display: block;
+  position: absolute;
+  content: "";
+  top: 9px;
+  left: 5px;
+  width: 10px;
+  height: 2px;
+  background: currentColor;
+}
+.accordion button .icon::after {
+  display: block;
+  position: absolute;
+  content: "";
+  top: 5px;
+  left: 9px;
+  width: 2px;
+  height: 10px;
+  background: currentColor;
+}
+.accordion button[aria-expanded=true] {
+  color: #03b5d2;
+}
+.accordion button[aria-expanded=true] .icon::after {
+  width: 0;
+}
+.accordion button[aria-expanded=true] + .accordion-content {
+  opacity: 1;
+  max-height: 18em;
+  transition: all 200ms linear;
+  will-change: opacity, max-height;
+}
+.accordion .accordion-content {
+  opacity: 0;
+  max-height: 0;
+  overflow: hidden;
+  transition: opacity 200ms linear, max-height 200ms linear;
+  will-change: opacity, max-height;
+}
+.accordion .accordion-content p {
+  font-size: 1rem;
+  font-weight: 300;
+  margin: 2em 0;
+}
+    body,
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6 {
+      font-family: "Raleway", sans-serif
+    }
+
+
+    body,
+    html {
+      height: 100%;
+      line-height: 1.8;
+    }
+
+    /* Full height image header */
+    .bgimg-1 {
+      background-position: center;
+      background-size: cover;
+      background-color: #1d162d;
+      min-height: 100%;
+    }
+
+    .w3-bar .w3-button {
+      padding: 16px;
+    }
+
+    .w3-logo img {
+      width: 50px;
+      /* Adjust the width as needed */
+      height: auto;
+      /* This maintains the aspect ratio */
+    }
+
+    .question{
+      background-color: beige;
+    }
+
+    .image-container {
+      position: relative;
+      overflow: hidden;
+      width: 600px;
+      /* Adjust the width to match your image size */
+      height: 600px;
+      /* Adjust the height to match your image size */
+      transition: all 0.3s ease;
+      /* Smooth transition for the blur effect */
+    }
+
+    .image-container img {
+      max-width: 100%;
+      height: auto;
+      transition: filter 0.3s ease;
+      /* Transition for the filter property */
+    }
+
+    .view-button {
+      position: absolute;
+      top: 60%;
+      /* Adjust the position of the button */
+      left: 50%;
+      transform: translate(-50%, -50%);
+      padding: 10px 20px;
+      background-color: transparent;
+      color: #271e3b;
+      border: 2px solid #271e3b;
+      border-radius: 5px;
+      cursor: pointer;
+      opacity: 0;
+      /* Hidden by default */
+      transition: opacity 0.3s ease;
+      /* Smooth transition for opacity */
+    }
+
+    .view-button:hover {
+      background-color: #271e3b;
+      color: #fff;
+    }
+
+    /* Apply the blur effect and show the button and text on hover */
+    .image-container:hover {
+      transform: scale(1.1);
+      /* Optional: Scale the image on hover */
+    }
+
+    .image-container:hover img {
+      filter: blur(5px);
+
+      /* Adjust the blur intensity as needed */
+    }
+
+    .image-container:hover .view-button {
+      opacity: 1;
+      /* Show the button on hover */
+    }
+
+    .image-container .view-text {
+      position: absolute;
+      top: 30%;
+      /* Adjust the position of the text */
+      left: 40%;
+      font-size: 30px;
+      color: white;
+      transform: translate(-50%, -50%);
+      opacity: 0;
+      transition: opacity 0.3s ease;
+    }
+
+    .image-container:hover .view-text {
+      opacity: 1;
+    }
+
+    .img-side {
+      padding-left: 10px;
+      float: left;
+      width: 80%;
+      padding: 5px;
+    }
+
+    .all {
+      display: flex;
+      justify-content: space-between;
+      position: absolute;
+      top: 50%;
+      left: 150%;
+      transform: translate(-50%, -50%);
+      -webkit-transform: rotate(90deg);
+      -moz-transform: rotate(90deg);
+      -o-transform: rotate(90deg);
+      -ms-transform: rotate(90deg);
+      transform: rotate(90deg);
+    }
+
+    .contain {
+      height: 90px;
+      margin: 0 20px;
+      position: relative;
+    }
+
+    .contain .circle {
+      width: 20px;
+      height: 20px;
+      border-radius: 50%;
+      position: absolute;
+      left: calc(50% - 5px);
+      top: 0;
+    }
+
+    .contain .circle:nth-child(1) {
+      top: 0;
+      animation: anim_a 2s infinite ease-in-out;
+      background-color: lightskyblue;
+    }
+
+    .contain .circle:nth-child(2) {
+      top: calc(100% - 5px);
+      transform: scale(1.5);
+      animation: anim_b 2s infinite ease-in-out;
+      background-color: lightskyblue;
+    }
+
+    @keyframes anim_a {
+      0% {
+        top: 0;
+        z-index: 50;
+      }
+
+      20% {
+        transform: scale(1.5);
+      }
+
+      50% {
+        top: 100%;
+      }
+
+      50.1% {
+        z-index: 0;
+      }
+
+      75% {
+        transform: scale(0.8);
+        z-index: 0;
+      }
+
+      100% {
+        top: 0%;
+        z-index: 2;
+      }
+    }
+
+    @keyframes anim_b {
+      0% {
+        top: calc(100% - 5px);
+        z-index: 1;
+      }
+
+      25% {
+        transform: scale(0.8);
+      }
+
+      50% {
+        top: 0;
+      }
+
+      50.1% {
+        z-index: 2;
+      }
+
+      80% {
+        transform: scale(1.5);
+        z-index: 2;
+      }
+
+      100% {
+        top: calc(100% - 5px);
+        z-index: 0;
+      }
+    }
+
+    .contain:nth-child(2) .circle {
+      animation-delay: -0.1s;
+    }
+
+    .contain:nth-child(3) .circle {
+      animation-delay: -0.2s;
+    }
+
+    .contain:nth-child(4) .circle {
+      animation-delay: -0.3s;
+    }
+
+    .contain:nth-child(5) .circle {
+      animation-delay: -0.4s;
+    }
+
+    .contain:nth-child(6) .circle {
+      animation-delay: -0.5s;
+    }
+
+    .contain:nth-child(7) .circle {
+      animation-delay: -0.6s;
+    }
+
+    .contain:nth-child(8) .circle {
+      animation-delay: -0.7s;
+    }
+
+    .contain:nth-child(9) .circle {
+      animation-delay: -0.8s;
+    }
+
+    .contain:nth-child(10) .circle {
+      animation-delay: -0.9s;
+    }
+
+    .contain:nth-child(11) .circle {
+      animation-delay: -1s;
+    }
+
+    .contain:nth-child(12) .circle {
+      animation-delay: -1.1s;
+    }
+
+    
+  </style>
+</head>
+
+<body>
+
+  <!-- Navbar (sit on top) -->
+  <div class="w3-top">
+    <div class="w3-bar w3-white w3-card" id="myNavbar">
+      <a href="#home" class="w3-bar-item w3-button w3-logo">
+        <img src="images/logo.jpeg" alt="Path Enlightenment Logo">
+      </a>
+      <!-- Right-sided navbar links -->
+      <div class="w3-right w3-hide-small">
+        <a href="#about" class="w3-bar-item w3-button">ABOUT</a>
+
+        <!-- Dropdown for Login -->
+        <div class="w3-dropdown-click">
+          <button class="w3-button" onclick="toggleDropdown()">LOGIN <i class="fa fa-caret-down"></i></button>
+          <div class="w3-dropdown-content w3-bar-block w3-card-4" id="loginDropdown" style="display: none;">
+            <a href="pat_login.html" class="w3-bar-item w3-button">User Login</a>
+            <a href="doc_login.html" class="w3-bar-item w3-button">Doctor Login</a>
+          </div>
+        </div>
+
+        <a href="#team" class="w3-bar-item w3-button">DNA Samples</a>
+        <a href="#faq" class="w3-bar-item w3-button">FAQs</a>
+        <a href="#contact" class="w3-bar-item w3-button"><i class="fa fa-envelope"></i> CONTACT</a>
+      </div>
+      <!-- Hide right-floated links on small screens and replace them with a menu icon -->
+      <button class="w3-bar-item w3-button w3-right w3-hide-large w3-hide-medium" onclick="toggleSidebar()">
+        MENU <i class="fa fa-bars"></i>
+      </button>
+    </div>
+  </div>
+
+
+  <!-- Sidebar on small screens when clicking the menu icon -->
+  <nav class="w3-sidebar w3-bar-block w3-black w3-card w3-animate-left w3-hide-medium w3-hide-large"
+    style="display:none" id="mySidebar">
+    <a href="javascript:void(0)" onclick="toggleSidebar()" class="w3-bar-item w3-button w3-large w3-padding-16">Close
+      ×</a>
+    <a href="#about" onclick="toggleSidebar()" class="w3-bar-item w3-button">ABOUT</a>
+    <a href="#team" onclick="toggleSidebar()" class="w3-bar-item w3-button">DNA Samples</a>
+    <a href="#faq" onclick="toggleSidebar()" class="w3-bar-item w3-button">FAQs</a>
+    <a href="#contact" onclick="toggleSidebar()" class="w3-bar-item w3-button">CONTACT</a>
+  </nav>
+
+  <!-- Header with full-height image -->
+  <header class="bgimg-1 w3-display-container w3-grayscale-min" id="home">
+    <div class="w3-display-left w3-text-white" style="padding:48px">
+      <span class="w3-jumbo w3-hide-small">Path Enlightenment</span><br>
+      <span class="w3-large">Preserving Genomes, Empowering Futures: Your DNA, Your Data, Your Health</span>
+      <p><a href="#about"
+          class="w3-button w3-white w3-padding-large w3-large w3-margin-top w3-opacity w3-hover-opacity-off">Learn
+          more</a></p>
+
+          <div class="all">
+            <div class="contain">
+              <div class="circle"></div>
+              <div class="circle"></div>
+            </div>
+            <div class="contain">
+              <div class="circle"></div>
+              <div class="circle"></div>
+            </div>
+            <div class="contain">
+              <div class="circle"></div>
+              <div class="circle"></div>
+            </div>
+            <div class="contain">
+              <div class="circle"></div>
+              <div class="circle"></div>
+            </div>
+            <div class="contain">
+              <div class="circle"></div>
+              <div class="circle"></div>
+            </div>
+            <div class="contain">
+              <div class="circle"></div>
+              <div class="circle"></div>
+            </div>
+            <div class="contain">
+              <div class="circle"></div>
+              <div class="circle"></div>
+            </div>
+            <div class="contain">
+              <div class="circle"></div>
+              <div class="circle"></div>
+            </div>
+            <div class="contain">
+              <div class="circle"></div>
+              <div class="circle"></div>
+            </div>
+            <div class="contain">
+              <div class="circle"></div>
+              <div class="circle"></div>
+            </div>
+            <div class="contain">
+              <div class="circle"></div>
+              <div class="circle"></div>
+            </div>
+            <div class="contain">
+              <div class="circle"></div>
+              <div class="circle"></div>
+            </div>
+    
+          </div>
+    </div>
+  </header>
+
+  <!-- About Section -->
+  <div class="w3-container" style="padding:128px 16px" id="about">
+    <h3 class="w3-center">ABOUT THE PROJECT</h3>
+    <p class="w3-center w3-large">Key features of our project</p>
+    <div class="w3-row-padding w3-center" style="margin-top:64px">
+      <div class="w3-quarter">
+        <i class="fa fa-desktop w3-margin-bottom w3-jumbo w3-center"></i>
+        <p class="w3-large">Genomic Datasets</p>
+        <p>Comprehensive genomic data for cancer research and insight into genetic alterations in cancer patients.</p>
+      </div>
+      <div class="w3-quarter">
+        <i class="fa fa-heart w3-margin-bottom w3-jumbo"></i>
+        <p class="w3-large">Powerful Computational Algorithms</p>
+        <p>Advanced algorithms for data analysis and accurate cancer diagnosis and treatment planning.</p>
+      </div>
+      <div class="w3-quarter">
+        <i class="fa fa-diamond w3-margin-bottom w3-jumbo"></i>
+        <p class="w3-large">Blockchain-Backed Data Integrity</p>
+        <p>Ensuring data security and integrity with blockchain and tamper-proof medical records.</p>
+      </div>
+      <div class="w3-quarter">
+        <i class="fa fa-cog w3-margin-bottom w3-jumbo"></i>
+        <p class="w3-large">How It Works</p>
+        <p>User-friendly platform for individuals and healthcare providers and step-by-step genomic analysis and
+          interpretation.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Team Section -->
+  <div class="w3-container w3-light-grey" style="padding:128px 16px" id="team">
+    <h3 class="w3-center">NGS Nucleotide Level Annotations</h3>
+    <div class="w3-center">
+        <div class="img-side">
+            <div class="image-container" style="float: left; padding: 40px; width: 50%;">
+                <img src="images/europekids.jpg" alt="europekids" style="width:100%">
+                <a href="europe.html"><button class="view-button">View</button></a>
+                <div class="view-text">
+                    <p>European Ancestry(CEU) Whole Genome DNA samples</p>
+                </div>
+            </div>
+            <div class="image-container" style="float: left; width: 50%;">
+                <img src="images/africankids.jpg" alt="europekids" style="width:100%">
+                <a href="africa.html"><button class="view-button">View</button></a>
+                <div class="view-text">
+                    <p>African(YRI) Ancestry Whole Genome DNA Samples</p>
+                </div>
+            </div>
+            <div style="clear: both;"></div> <!-- Clear the float to prevent layout issues -->
+        </div>
+    </div>
+</div>
+
+  <div class="container" id="faq">
+    <h2>Frequently Asked Questions</h2>
+    <div class="accordion">
+      <div class="accordion-item">
+        <button id="accordion-button-1" aria-expanded="false"><span class="accordion-title">What is Path Enlightenment? And what do you do?</span><span class="icon" aria-hidden="true"></span></button>
+        <div class="accordion-content">
+          <p>We are a team who wants to help in eliminating the cancer from the society by targetting its root cause i.e. DNA alterations. 
+            We help you to store your data in the most efficient manner by running our algorithms which can help in early detection of cancer, 
+            keeping in mind, the integrity of the data as well.</p>
+        </div>
+      </div>
+      <div class="accordion-item">
+        <button id="accordion-button-2" aria-expanded="false"><span class="accordion-title">What is DNA Sequencing And why do we need this?</span><span class="icon" aria-hidden="true"></span></button>
+        <div class="accordion-content">
+          <p>DNA sequencing is like deciphering a hidden message in our cells that contains instructions for our bodies. 
+            It's super important because it helps scientists find ways to cure diseases. 
+            By understanding this code, we can figure out which genes might be causing illnesses and then work on treatments to fix them. 
+            So, DNA sequencing is a powerful tool in the search for better health and medical breakthroughs!.</p>
+        </div>
+      </div>
+      <div class="accordion-item">
+        <button id="accordion-button-3" aria-expanded="false"><span class="accordion-title">Why are regular DNA screenings necessary?</span><span class="icon" aria-hidden="true"></span></button>
+        <div class="accordion-content">
+          <p>Regular DNA screenings are important because they allow us to create personalized medicine tailored to each person's unique genetic makeup. 
+            By checking our DNA regularly, we can spot any changes or signs that might lead to diseases like cancer early on. 
+            This early detection gives us a better chance to treat and prevent serious health issues, leading to more effective and personalized medical care for everyone.</p>
+        </div>
+      </div>
+      <div class="accordion-item">
+        <button id="accordion-button-4" aria-expanded="false"><span class="accordion-title"> Is my DNA data secure?</span><span class="icon" aria-hidden="true"></span></button>
+        <div class="accordion-content">
+          <p>Your DNA data is actually accessible by you and the people who you choose to share it with. Even Path Enlightenment doesn't have access to it, since it
+             is being stored in <b>your personal e-wallet</b>. We use state-of-the-art technologies like decentralised storage system(IPFS) and blockchain to ensure
+              the integrity of the data. Also, we are open source and anyone can verify the smart contract(the way we deploy your data to your wallet) from this
+              <a href="https://sepolia.etherscan.io/address/0xc4e21d62cc53a628067b038791578332d5ffc0a9#code">link</a>.</p>
+        </div>
+      </div>
+      <div class="accordion-item">
+        <button id="accordion-button-5" aria-expanded="false"><span class="accordion-title">After I upload my DNA data, how is it being processed and used?</span><span class="icon" aria-hidden="true"></span></button>
+        <div class="accordion-content">
+          <p>When you upload the data(which will be given to you by some lab after testing!), our algorithm processes it and makes it more simple and understandable
+            (for the doctors to generate insights) and store it securely to your e-wallet. Also, after processing and analysing, the website may suggest you some 
+            doctors to connect with, if needed.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- Contact Section -->
+  <div class="w3-container w3-light-grey" style="padding:128px 16px" id="contact" style="background-color: lightgrey;">
+    <h3 class="w3-center">CONTACT</h3>
+    <p class="w3-center w3-large">Let's get in touch. Send us a message:</p>
+    <div style="margin-top:48px">
+      <p><i class="fa fa-map-marker fa-fw w3-xxlarge w3-margin-right"></i> Kolkata, India</p>
+      <p><i class="fa fa-phone fa-fw w3-xxlarge w3-margin-right"></i> Phone: +00 151515</p>
+      <p><i class="fa fa-envelope fa-fw w3-xxlarge w3-margin-right"> </i> Email: pathenlightenment@gmail.com</p>
+      <br>
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <footer class="w3-center w3-black w3-padding-64">
+    <a href="#home" class="w3-button w3-light-grey"><i class="fa fa-arrow-up w3-margin-right"></i>To the top</a>
+  </footer>
+
+  <script>
+    // Toggle between showing and hiding the sidebar and dropdown menu when clicking the menu icon
+    var mySidebar = document.getElementById("mySidebar");
+    var loginDropdown = document.getElementById("loginDropdown");
+
+    function toggleSidebar() {
+      if (mySidebar.style.display === 'block') {
+        mySidebar.style.display = 'none';
+        loginDropdown.style.display = 'none';
+      } else {
+        mySidebar.style.display = 'block';
+        loginDropdown.style.display = 'block';
+      }
+    }
+
+    // Toggle the dropdown menu
+    function toggleDropdown() {
+      if (loginDropdown.style.display === 'block') {
+        loginDropdown.style.display = 'none';
+      } else {
+        loginDropdown.style.display = 'block';
+      }
+    }
+
+    // Close the sidebar with the close button
+    function closeSidebar() {
+      mySidebar.style.display = "none";
+      loginDropdown.style.display = 'none';
+    }
+    
+    // const questions = document.querySelectorAll('.question');
+
+    // questions.forEach(question => {
+    //   const answer = question.querySelector('.answer');
+
+    //   question.addEventListener('click', () => {
+    //     if (answer.style.display === 'block') {
+    //       answer.style.display = 'none';
+    //     } else {
+    //       answer.style.display = 'block';
+    //     }
+    //   });
+    //   question.addEventListener('mouseover', () => {
+    //     question.style.cursor = 'pointer';
+    // });
+
+    // question.addEventListener('mouseout', () => {
+    //     question.style.cursor = 'default';
+    // });
+    // });
+    const items = document.querySelectorAll(".accordion button");
+
+function toggleAccordion() {
+  const itemToggle = this.getAttribute('aria-expanded');
+  
+  for (i = 0; i < items.length; i++) {
+    items[i].setAttribute('aria-expanded', 'false');
+  }
+  
+  if (itemToggle == 'false') {
+    this.setAttribute('aria-expanded', 'true');
+  }
+}
+
+items.forEach(item => item.addEventListener('click', toggleAccordion));
+
+
+  </script>
+
+</body>
+
+</html>

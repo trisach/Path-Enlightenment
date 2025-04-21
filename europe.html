@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Europe DNA Sample</title>
+  <style>
+    .dropdown-menu {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .dropdown-item {
+      margin: 10px 0;
+    }
+
+    .dropdown-select {
+      width: 200px;
+      padding: 5px;
+    }
+
+    .btn {
+      padding: 5px 10px;
+    }
+  </style>
+</head>
+<body>
+  <div class="dropdown-menu">
+    <div class="dropdown-item">
+      <select class="dropdown-select" id="dropdown-1">
+        <option value="choice1">NA12878</option>
+        <option value="choice2">NA12891</option>
+        <option value="choice3">NA12892</option>
+      </select>
+    </div>
+    <div class="dropdown-item">
+      <select class="dropdown-select" id="dropdown-2">
+        <option value="choice1">[0.5,5]kbp</option>
+        <option value="choice2">[5.001,10]kbp</option>
+        <option value="choice3">[10.001,50]kbp</option>
+        <option value="choice4">[50.001,1000]kbp</option>
+        <option value="choice5">[1000.001,1050]kbp</option>
+      </select>
+    </div>
+    <div class="dropdown-item">
+      <select class="dropdown-select" id="dropdown-3">
+        <option value="choice1">Duplication</option>
+        <option value="choice2">Deletion</option>
+      </select>
+    </div>
+    <div class="dropdown-item">
+      <button type="submit" class="btn btn-primary" id="submit-button">Submit</button>
+    </div>
+  </div>
+
+  <script>
+    const dropdown1 = document.getElementById('dropdown-1');
+    const dropdown2 = document.getElementById('dropdown-2');
+    const dropdown3 = document.getElementById('dropdown-3');
+    const submitButton = document.getElementById('submit-button');
+
+    // Create an object to store the links for each possible combination of values.
+    const links = {
+      'choice1-choice1-choice1': 'http://64.227.142.92:8080/ENLIGHTENMENT/CEU-CNV-Gains.jsp?Samples=NA12878&Length=5000&CNV_Type=Insertion',
+      'choice1-choice1-choice2': 'http://64.227.142.92:8080/ENLIGHTENMENT/CEU-CNV-Gains.jsp?Samples=NA12878&Length=5000&CNV_Type=Deletion',
+      'choice1-choice2-choice1': 'http://64.227.142.92:8080/ENLIGHTENMENT/CEU-CNV-Gains.jsp?Samples=NA12878&Length=10000&CNV_Type=Insertion',
+      'choice1-choice2-choice2': 'http://64.227.142.92:8080/ENLIGHTENMENT/CEU-CNV-Gains.jsp?Samples=NA12878&Length=10000&CNV_Type=Deletion',
+      'choice1-choice3-choice1': 'http://64.227.142.92:8080/ENLIGHTENMENT/CEU-CNV-Gains.jsp?Samples=NA12878&Length=50000&CNV_Type=Insertion',
+      'choice1-choice3-choice2': 'http://64.227.142.92:8080/ENLIGHTENMENT/CEU-CNV-Gains.jsp?Samples=NA12878&Length=50000&CNV_Type=Deletion',
+      'choice1-choice4-choice1': 'http://64.227.142.92:8080/ENLIGHTENMENT/CEU-CNV-Gains.jsp?Samples=NA12878&Length=1000000&CNV_Type=Insertion',
+      'choice1-choice4-choice2': 'http://64.227.142.92:8080/ENLIGHTENMENT/CEU-CNV-Gains.jsp?Samples=NA12878&Length=1000000&CNV_Type=Deletion',
+      'choice1-choice5-choice1': 'http://64.227.142.92:8080/ENLIGHTENMENT/CEU-CNV-Gains.jsp?Samples=NA12878&Length=1020000&CNV_Type=Insertion',
+      'choice1-choice5-choice2': 'http://64.227.142.92:8080/ENLIGHTENMENT/CEU-CNV-Gains.jsp?Samples=NA12878&Length=1020000&CNV_Type=Deletion',
+
+      'choice2-choice1-choice1': 'http://64.227.142.92:8080/ENLIGHTENMENT/CEU-CNV-Gains.jsp?Samples=NA12891&Length=5000&CNV_Type=Insertion',
+      'choice2-choice1-choice2': 'http://64.227.142.92:8080/ENLIGHTENMENT/CEU-CNV-Gains.jsp?Samples=NA12891&Length=5000&CNV_Type=Deletion',
+      'choice2-choice2-choice1': 'http://64.227.142.92:8080/ENLIGHTENMENT/CEU-CNV-Gains.jsp?Samples=NA12891&Length=10000&CNV_Type=Insertion',
+      'choice2-choice2-choice2': 'http://64.227.142.92:8080/ENLIGHTENMENT/CEU-CNV-Gains.jsp?Samples=NA12891&Length=10000&CNV_Type=Deletion',
+      'choice2-choice3-choice1': 'http://64.227.142.92:8080/ENLIGHTENMENT/CEU-CNV-Gains.jsp?Samples=NA12891&Length=50000&CNV_Type=Insertion',
+      'choice2-choice3-choice2': 'http://64.227.142.92:8080/ENLIGHTENMENT/CEU-CNV-Gains.jsp?Samples=NA12891&Length=50000&CNV_Type=Deletion',
+      'choice2-choice4-choice1': 'http://64.227.142.92:8080/ENLIGHTENMENT/CEU-CNV-Gains.jsp?Samples=NA12891&Length=1000000&CNV_Type=Insertion',
+      'choice2-choice4-choice2': 'http://64.227.142.92:8080/ENLIGHTENMENT/CEU-CNV-Gains.jsp?Samples=NA12891&Length=1000000&CNV_Type=Deletion',
+      'choice2-choice5-choice1': 'http://64.227.142.92:8080/ENLIGHTENMENT/CEU-CNV-Gains.jsp?Samples=NA12891&Length=1020000&CNV_Type=Insertion',
+      'choice2-choice5-choice2': 'http://64.227.142.92:8080/ENLIGHTENMENT/CEU-CNV-Gains.jsp?Samples=NA12891&Length=1020000&CNV_Type=Deletion',
+
+      'choice3-choice1-choice1': 'http://64.227.142.92:8080/ENLIGHTENMENT/CEU-CNV-Gains.jsp?Samples=NA12892&Length=5000&CNV_Type=Insertion',
+      'choice3-choice1-choice2': 'http://64.227.142.92:8080/ENLIGHTENMENT/CEU-CNV-Gains.jsp?Samples=NA12892&Length=5000&CNV_Type=Deletion',
+      'choice3-choice2-choice1': 'http://64.227.142.92:8080/ENLIGHTENMENT/CEU-CNV-Gains.jsp?Samples=NA12892&Length=10000&CNV_Type=Insertion',
+      'choice3-choice2-choice2': 'http://64.227.142.92:8080/ENLIGHTENMENT/CEU-CNV-Gains.jsp?Samples=NA12892&Length=10000&CNV_Type=Deletion',
+      'choice3-choice3-choice1': 'http://64.227.142.92:8080/ENLIGHTENMENT/CEU-CNV-Gains.jsp?Samples=NA12892&Length=50000&CNV_Type=Insertion',
+      'choice3-choice3-choice2': 'http://64.227.142.92:8080/ENLIGHTENMENT/CEU-CNV-Gains.jsp?Samples=NA12892&Length=50000&CNV_Type=Deletion',
+      'choice3-choice4-choice1': 'http://64.227.142.92:8080/ENLIGHTENMENT/CEU-CNV-Gains.jsp?Samples=NA12892&Length=1000000&CNV_Type=Insertion',
+      'choice3-choice4-choice2': 'http://64.227.142.92:8080/ENLIGHTENMENT/CEU-CNV-Gains.jsp?Samples=NA12892&Length=1000000&CNV_Type=Deletion',
+      'choice3-choice5-choice1': 'http://64.227.142.92:8080/ENLIGHTENMENT/CEU-CNV-Gains.jsp?Samples=NA12892&Length=1020000&CNV_Type=Insertion',
+      'choice3-choice5-choice2': 'http://64.227.142.92:8080/ENLIGHTENMENT/CEU-CNV-Gains.jsp?Samples=NA12892&Length=1020000&CNV_Type=Deletion',
+      // ...
+      // Add links for all possible combinations of values here.
+      // ...
+    };
+
+    submitButton.addEventListener('click', () => {
+      // Get the selected values from each dropdown.
+      const selectedValue1 = dropdown1.value;
+      const selectedValue2 = dropdown2.value;
+      const selectedValue3 = dropdown3.value;
+
+      // Construct the link based on the selected values.
+      const link = links[`${selectedValue1}-${selectedValue2}-${selectedValue3}`];
+
+      // Redirect the user to the link.
+      window.location.href = link;
+    });
+  </script>
+</body>
+</html>

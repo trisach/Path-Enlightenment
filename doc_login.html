@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MetaMask Login</title>
+    <style>
+        /* Reset some default styles */
+        body, html {
+            margin: 0;
+            padding: 0;
+            font-family: Figtree,sans-serif;
+            background: linear-gradient(to bottom, #68b7ba, #85c7e3);
+        }
+
+        /* Styling for the background image */
+        .container {
+            background-image: url('path/to/your/background-image.jpg');
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+            background-position: center;
+            opacity: 0.9; /* Adjust the opacity as needed */
+            height: 100vh; /* Ensure full viewport height */
+        }
+
+        /* Center the content vertically and horizontally */
+        .container {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            
+        }
+
+        .contnt{
+            border: 2px solid transparent;
+            background: linear-gradient( to bottom,#b6cccc, #e0f2f2);
+            width: 350px;
+            height: 400px; /* Fixed width for button containers */
+            text-align: center;
+            padding: 20px;
+            border-radius: 5px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            transition: box-shadow 0.3s;
+            box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
+           border-radius: 20px; 
+        }
+
+        /* Styles for the login button */
+        #login-button {
+            background-color: transparent;
+            border: 2px solid #094166;
+            color: #094166;
+            padding: 10px 20px;
+            font-size: 18px;
+            border-radius: 5px;
+            text-decoration: none;
+            cursor: pointer;
+            margin-top: 20px;
+            transition: background-color 0.3s;
+            border-radius: 20px;
+            width: 350px;
+        }
+
+        #login-button:hover {
+            background-color: #094166;
+            color: #fff;
+        }
+
+        /* Styles for the home page button */
+        #logout-button {
+            background-color: transparent;
+            border: 2px groove #094166;
+            color: #094166;
+            padding: 10px 20px;
+            font-size: 18px;
+            border-radius: 5px;
+            text-decoration: none;
+            cursor: pointer;
+            margin-top: 10px;
+            transition: background-color 0.3s;
+            border-radius:20px ;
+            width: 350px;
+        }
+
+        #logout-button:hover {
+            background-color: #094166;
+            color: #fff;
+        }
+        h1{
+            font-size: 90px;
+            color: azure;
+        }
+    </style>
+</head>
+<body>
+    
+    <div class="container ">
+        <h1>Doctor Login</h1>
+        <div class="contnt">
+           
+            <img src="https://forum.zeroqode.com/uploads/default/original/2X/4/401498d7adfbb383fea695394f4f653ea4e7c9a7.png" width='100px',height='100px'
+            class="avatar">
+            <h2 style="color: #094166; font-size: 50px;">Login</h2>
+            <button id="login-button" class="w3-button w3-white w3-padding-large w3-large w3-margin-top w3-opacity w3-hover-opacity-off">Login with MetaMask</button>
+        <a href="index.html"><button id="logout-button" class="w3-button w3-white w3-padding-large w3-large w3-margin-top w3-opacity w3-hover-opacity-off">Home Page</button></a>
+        </div>
+        
+    </div>
+    <script src="doc_loginscript.js"></script>
+</body>
+</html>

@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>View Record</title>
+    <style>
+       body {
+            background-color: #f9f9f9;
+            font-family: Arial, sans-serif;
+            text-align: center;
+        }
+
+        .button-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        .button {
+            background-color: #007BFF;
+            color: #fff;
+            border: none;
+            padding: 10px 20px;
+            font-size: 18px;
+            border-radius: 5px;
+            margin: 10px;
+            text-decoration: none;
+            transition: background-color 0.3s;
+            cursor: pointer;
+            border: 1px solid white;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+        }
+
+        .button:hover {
+            background-color: #0056b3;
+        }
+
+        .dropdown-menu {
+            position: absolute;
+            top: 70%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background-color: white;
+            border: 1px solid #007BFF;
+            border-radius: 5px;
+            padding: 10px;
+        }
+
+        .dropdown-item {
+            padding: 10px;
+        }
+
+        .dropdown-select {
+            width: 100%;
+            padding: 10px;
+        }
+
+        .btn-primary {
+            background-color: #007BFF;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            padding: 10px 20px;
+            font-size: 18px;
+            cursor: pointer;
+        }
+
+        .btn-primary:hover {
+            background-color: #0056b3;
+        }
+    </style>
+    <script>
+           function fun(){
+            alert("Feature in development");
+        };
+    </script>
+</head>
+<body>
+    <div class="button-container">
+        <a href="https://ipfs.io/ipfs/QmeqHiGe1Yjg69nUWAMUWXo7ug8LSkMKeLLLtMfeVgDZca" class="button">NA12878</a>
+        <a href="https://ipfs.io/ipfs/QmReTwirbe21MYDVZeWoNVu79CuceL9HyCdpZAnLy8xUuj" class="button">NA12891</a>
+        <a href="https://ipfs.io/ipfs/QmWQbhfmXMm754ivCuffNtg8gBjqE53gCCne1EnEVyMVVS" class="button">NA19238</a>
+    </div>
+    <div class="dropdown-menu" style="display:none">
+        <div class="dropdown-item">
+          <select class="dropdown-select" id="dropdown-1">
+            <option value="choice1">NA19238</option>
+            <option value="choice2">NA12878</option>
+            <option value="choice3">NA12891</option>
+          </select>
+        </div>
+        <div class="dropdown-item">
+          <button type="submit" class="btn btn-primary" id="submit-button" onclick="fun()">Compare with binary tree</button>
+        </div>
+      </div>
+    
+      <script>
+        const dropdown1 = document.getElementById('dropdown-1');
+        const submitButton = document.getElementById('submit-button');
+
+     
+        // Create an object to store the links for each possible combination of values.
+        const links = {
+          'choice1': "https://ipfs.io/ipfs/QmeqHiGe1Yjg69nUWAMUWXo7ug8LSkMKeLLLtMfeVgDZca",
+          
+          'choice2':  "https://ipfs.io/ipfs/QmReTwirbe21MYDVZeWoNVu79CuceL9HyCdpZAnLy8xUuj",
+    
+          'choice3':  "https://ipfs.io/ipfs/QmWQbhfmXMm754ivCuffNtg8gBjqE53gCCne1EnEVyMVVS"
+          // ...
+          // Add links for all possible combinations of values here.
+          // ...
+        };
+    
+        submitButton.addEventListener('click', () => {
+          // Get the selected values from each dropdown.
+          const selectedValue1 = dropdown1.value;
+    
+          // Construct the link based on the selected values.
+          const link = links[`${selectedValue1}-${selectedValue2}-${selectedValue3}`];
+    
+          // Redirect the user to the link.
+        });
+      </script>
+</body>
+</html>

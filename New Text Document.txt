@@ -1,0 +1,20 @@
+1) What is Path Enlightenment? And what do you do?
+
+We are a team who wants to help in eliminating the cancer from the society by targetting its root cause i.e. DNA alterations. We help you to store your data in the most efficient manner by running our algorithms which can help in early detection of cancer, keeping in mind, the integrity of the data as well.
+
+2) What is DNA Sequencing And why do we need this?
+
+DNA sequencing is like deciphering a hidden message in our cells that contains instructions for our bodies. It's super important because it helps scientists find ways to cure diseases. By understanding this code, we can figure out which genes might be causing illnesses and then work on treatments to fix them. So, DNA sequencing is a powerful tool in the search for better health and medical breakthroughs!
+
+3) Why are regular DNA screenings necessary?
+
+Regular DNA screenings are important because they allow us to create personalized medicine tailored to each person's unique genetic makeup. By checking our DNA regularly, we can spot any changes or signs that might lead to diseases like cancer early on. This early detection gives us a better chance to treat and prevent serious health issues, leading to more effective and personalized medical care for everyone.
+
+
+4) Is my DNA data secure?
+
+Your DNA data is actually accessible by you and the people who you choose to share it with. Even Path Enlightenment doesn't have access to it, since it is being stored in your personal e-wallet. We use state-of-the-art technologies like decentralised storage system(IPFS) and blockchain to ensure the integrity of the data. Also, we are open source and anyone can verify the smart contract(the way we deploy your data to your wallet) from this link.
+
+5) After I upload my DNA data, how is it being processed and used?
+
+When you upload the data(which will be given to you by some lab after testing!), our algorithm processes it and makes it more simple and understandable(for the doctors to generate insights) and store it securely to your e-wallet. Also, after processing and analysing, the website may suggest you some doctors to connect with, if needed.
